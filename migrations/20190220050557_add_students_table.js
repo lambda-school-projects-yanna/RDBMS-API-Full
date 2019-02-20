@@ -6,8 +6,8 @@ exports.up = function(knex, Promise) {
         tbl.increments();
         // name
         tbl.string('name', 250).notNullable();
-        // cohort id
-        tbl.integer('cohort_id')
+        // cohort id foreign key
+        tbl.integer('cohort_id').unsigned().references('id').inTable('cohorts');
     });
 };
 
